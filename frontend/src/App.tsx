@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { useAuth } from './context/AuthContext';
 import { 
-  Ticket, Calendar, MapPin, Users, DollarSign, LogOut, Shield, 
-  Layers, Plus, Trash2, CheckCircle2, AlertCircle, Clock, QrCode 
+  Ticket, Calendar, MapPin, LogOut, Shield, 
+  CheckCircle2, AlertCircle, Clock 
 } from 'lucide-react';
 
 interface Event {
@@ -109,10 +109,6 @@ export default function App() {
   
   // Waitlist Promotion Token (if URL contains token)
   const [promotionToken, setPromotionToken] = useState<string | null>(null);
-  const [promotionDetails, setPromotionDetails] = useState<any>(null);
-
-  // Socket Connection
-  const [socket, setSocket] = useState<Socket | null>(null);
 
   // 1. Fetch Initials
   useEffect(() => {
@@ -152,7 +148,6 @@ export default function App() {
   // 3. Connect Socket.IO
   useEffect(() => {
     const s = io(import.meta.env.VITE_WS_URL || 'http://localhost:5000');
-    setSocket(s);
 
     s.on('connect', () => {
       console.log('Socket connected successfully.');
@@ -186,7 +181,7 @@ export default function App() {
 
   // 4. Timer for held seat
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: any;
     if (holdTimer > 0) {
       interval = setInterval(() => {
         setHoldTimer((prev) => {
