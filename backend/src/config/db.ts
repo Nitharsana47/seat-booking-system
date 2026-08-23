@@ -1,0 +1,16 @@
+import { Pool } from 'pg';
+import { env } from './env';
+
+const pool = new Pool({
+  connectionString: env.DATABASE_URL,
+});
+
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+});
+
+export const db = {
+  query: (text: string, params?: any[]) => pool.query(text, params),
+  getClient: () => pool.connect(),
+  pool,
+};
