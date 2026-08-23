@@ -96,7 +96,10 @@ export async function initDb() {
     console.log('Initializing database schema...');
     
     // Read schema.sql
-    const schemaPath = path.resolve(__dirname, 'schema.sql');
+    let schemaPath = path.resolve(__dirname, 'schema.sql');
+    if (!fs.existsSync(schemaPath)) {
+      schemaPath = path.resolve(__dirname, '../../src/db/schema.sql');
+    }
     const schemaSql = fs.readFileSync(schemaPath, 'utf8');
     
     // Execute schema queries
