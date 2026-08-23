@@ -15,6 +15,21 @@ NeoSeat is a premium, real-time ticket booking platform designed to handle high 
 ![Seat Selection Grid](docs/screenshots/seat-grid.png)
 ![Booking Confirmation](docs/screenshots/confirmation.png)
 
+## Live Production Deployment
+
+The application is deployed and live in production:
+*   **Web Frontend (Vercel):** `https://[YOUR-VERCEL-SUBDOMAIN].vercel.app` *(Replace this with your actual Vercel URL)*
+*   **Backend API (Render):** `https://seat-booking-system-ahns.onrender.com`
+*   **Database (Neon PostgreSQL):** Managed serverless PostgreSQL
+*   **Cache & Locks (Upstash Redis):** Managed Redis instance with Key Expiry notifications enabled
+
+### Website Preview
+*(To add a screenshot of your website here, take a screenshot of your web browser, name it `screenshot.png`, save it in this root folder, and commit it to GitHub. It will display below!)*
+
+![NeoSeat Live Dashboard](screenshot.png)
+
+---
+
 ## Architecture Overview
 
 ```
