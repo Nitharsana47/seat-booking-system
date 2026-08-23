@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { io, Socket } from 'socket.io-client';
+import { io } from 'socket.io-client';
 import { useAuth } from './context/AuthContext';
 import { 
   Ticket, Calendar, MapPin, LogOut, Shield, 
